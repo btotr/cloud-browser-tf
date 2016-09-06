@@ -11,7 +11,7 @@
           specStatus:           "ED",
           
           // the specification's short name, as in http://www.w3.org/TR/short-name/
-          shortName:            "xxx-xxx",
+          shortName:            "cloud-browser",
 
           // if your specification has a subtitle that goes below the main
           // formal title, define it here
@@ -39,19 +39,18 @@
           // only "name" is required
           editors:  [
               {
-                  name:       "Your Name"
-              ,   url:        "http://example.org/"
-              ,   mailto:     "you@example.org"
-              ,   company:    "Your Company"
-              ,   companyURL: "http://example.com/"
+                  name:       "Colin Meerveld"
+              ,   mailto:     "c.meerveld@activevideo.com"
+              ,   company:    "Activevideo"
+              ,   companyURL: "http://www.activevideo.com/"
               },
           ],
           
           // name of the WG
-          wg:           "In Charge Of This Document Working Group",
+          wg:           "Cloud Browser TF",
           
           // URI of the public WG page
-          wgURI:        "http://example.org/really-cool-wg",
+          wgURI:        "https://btotr.github.io/cloud-browser-tf/",
           
           // name (without the @w3c.org) of the public mailing to which comments are due
           wgPublicList: "spec-writers-anonymous",
@@ -69,21 +68,26 @@
   <body>
     <section id='abstract'>
       <p>
-        This is the abstract for your specification.
+        This document describes an architecture for the Cloud Browser Runtime Environments.
       </p>
     </section>
     
     <section id='sotd'>
       <p>
-        You need to have a custom SotD paragraph. Maybe give a succinct description of your spec's
-        status.
+        This is a public working on an architectural draft that the Cloud Browser Task Force is discussing and exploring. It has no official standing of any kind and does not represent the support or consensus of any standards organisation or contributor. This is a subset of the W3C Public Web & TV Interest Group - Cloud Browser Task Force. As the Cloud Browser TF progresses its work, this section will be used to identify the architecture that has reached rough consensus within the group.
       </p>
     </section>
     
     <section>
-      <h2>Section Title</h2>
+      <h2>introduction</h2>
       <p>
-        Blah blah blah...
+        Today's browsers need a vast amount of hardware resources to process modern web sites, or simply fail to support modern technologies such as HTML5.
+
+        The Cloud Browser concept addresses these issues by putting the browser into a more powerful and easier manageable server or cloud.
+
+        So when a client, for example a Set-Top Box, tries to request a resource such as a web page with a video element, the URL gets forwarded to the server on which a browser is running. The browser fetches all the necessary data (HTML, CSS, JavaScript, images, video) and renders the page. Afterwards, the rendered page gets packed into a transport stream that is sent back to the client. Now the client has only to playback the transport stream, as the expensive rendering has been already done by the server.
+
+        Using this design, it is possible to provide a uniform user interface for a large range of devices, by simply creating a custom web application that gets processed by the Cloud Browser and streamed to the clients, such as Set-Top Boxes or HDMI dongles. Furthermore, it reduces the need for processing power inside the clients and helps in deploying new browser technologies faster.
       </p>
     </section>
     
