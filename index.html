@@ -1,101 +1,78 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>This Is The Name Of Your Specification</title>
+    <title>Cloud Browser Architecture</title>
     <meta charset='utf-8'>
-    <script src='https://www.w3.org/Tools/respec/respec-w3c-common'
-            async class='remove'></script>
+    <script src='https://www.w3.org/Tools/respec/respec-w3c-common' async class='remove'></script>
     <script class='remove'>
       var respecConfig = {
-          // specification status (e.g. WD, LCWD, WG-NOTE, etc.). If in doubt use ED.
-          specStatus:           "ED",
-          
-          // the specification's short name, as in http://www.w3.org/TR/short-name/
-          shortName:            "cloud-browser",
-
-          // if your specification has a subtitle that goes below the main
-          // formal title, define it here
-          // subtitle   :  "an excellent document",
-
-          // if you wish the publication date to be other than the last modification, set this
-          // publishDate:  "2009-08-06",
-
-          // if the specification's copyright date is a range of years, specify
-          // the start date here:
-          // copyrightStart: "2005"
-
-          // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
-          // and its maturity status
-          // previousPublishDate:  "1977-03-15",
-          // previousMaturity:  "WD",
-
-          // if there a publicly available Editor's Draft, this is the link
-          // edDraftURI:           "http://berjon.com/",
-
-          // if this is a LCWD, uncomment and set the end of its review period
-          // lcEnd: "2009-08-05",
-
-          // editors, add as many as you like
-          // only "name" is required
+          specStatus:         "ED",
+          shortName:          "cloud-browser",
           editors:  [
               {
-                  name:       "Colin Meerveld"
-              ,   mailto:     "c.meerveld@activevideo.com"
-              ,   company:    "Activevideo"
-              ,   companyURL: "http://www.activevideo.com/"
+                  name:       "Colin Meerveld",
+                  mailto:     "c.meerveld@activevideo.com",
+                  company:    "Activevideo",
+                  companyURL: "http://www.activevideo.com/"
               },
+              {
+                  name:       "Alexandra Mikityuk", 
+                  company:    "Deutsche Telekom"
+              }
           ],
-          
-          // name of the WG
-          wg:           "Cloud Browser TF",
-          
-          // URI of the public WG page
-          wgURI:        "https://btotr.github.io/cloud-browser-tf/",
-          
-          // name (without the @w3c.org) of the public mailing to which comments are due
-          wgPublicList: "spec-writers-anonymous",
-          
-          // URI of the patent status for this WG, for Rec-track documents
-          // !!!! IMPORTANT !!!!
-          // This is important for Rec-track documents, do not copy a patent URI from a random
-          // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-          // Team Contact.
-          wgPatentURI:  "",
-          // !!!! IMPORTANT !!!! MAKE THE ABOVE BLINK IN YOUR HEAD
+          wg:                 "Cloud Browser Task Force",
+          wgURI:              "https://btotr.github.io/cloud-browser-tf/"
       };
     </script>
   </head>
   <body>
+    
     <section id='abstract'>
       <p>
-        This document describes an architecture for the Cloud Browser Runtime Environments.
+          This document describes the concepts and architecture for the Cloud Browser. A conventional browser but the execution is shifted to the cloud. This has some architectural implication which this documents highlights.
       </p>
     </section>
     
     <section id='sotd'>
       <p>
-        This is a public working on an architectural draft that the Cloud Browser Task Force is discussing and exploring. It has no official standing of any kind and does not represent the support or consensus of any standards organisation or contributor. This is a subset of the W3C Public Web & TV Interest Group - Cloud Browser Task Force. As the Cloud Browser TF progresses its work, this section will be used to identify the architecture that has reached rough consensus within the group.
+          This is a public working on an architectural draft that the Cloud Browser Task Force is discussing and exploring. It has no official standing of any kind and does not represent the support or consensus of any standards organisation or contributor. This is a subset of the W3C Public Web & TV Interest Group - Cloud Browser Task Force. As the Cloud Browser TF progresses its work, this section will be used to identify the architecture that has reached rough consensus within the group.
       </p>
     </section>
     
-    <section>
-      <h2>introduction</h2>
+    <section class="introductory">
+      <h2>Introduction</h2>
       <p>
-        Today's browsers need a vast amount of hardware resources to process modern web sites, or simply fail to support modern technologies such as HTML5.
-
-        The Cloud Browser concept addresses these issues by putting the browser into a more powerful and easier manageable server or cloud.
-
-        So when a client, for example a Set-Top Box, tries to request a resource such as a web page with a video element, the URL gets forwarded to the server on which a browser is running. The browser fetches all the necessary data (HTML, CSS, JavaScript, images, video) and renders the page. Afterwards, the rendered page gets packed into a transport stream that is sent back to the client. Now the client has only to playback the transport stream, as the expensive rendering has been already done by the server.
-
-        Using this design, it is possible to provide a uniform user interface for a large range of devices, by simply creating a custom web application that gets processed by the Cloud Browser and streamed to the clients, such as Set-Top Boxes or HDMI dongles. Furthermore, it reduces the need for processing power inside the clients and helps in deploying new browser technologies faster.
+          Today's browsers need a vast amount of hardware resources to process modern web sites or simply unable to support modern web technologies such as HTML5. The Cloud Browser concept addresses these issues by putting the browser into a more powerful, easier and manageable server or Cloud. The service execution is shifted to the Cloud, where the user interface is rendered and streamed down as a media stream to the client. The main functionality of the client is decoding and presenting the media stream to the end user. 
+Using this design, it is possible to provide a uniform UI for a large range of devices. Furthermore, this concept reduces the need for processing power of the client and helps in deploying new browser technologies faster.
       </p>
     </section>
     
-    <section class='appendix'>
-      <h2>Acknowledgements</h2>
+    <section class="informative">
+      <h2>Architecture</h2>
       <p>
-        Many thanks to Robin Berjon for making our lives so much easier with his cool tool.
+          In a cloud browser architecture the execution is done on a server and the result is send down to a so-called runtime environment. This runtime environment is only responsible for displaying the stream and provide input information such-as key presses. In other words the runtime environment doesn't have any context of the running application nor it will interpreted input. An easy way to visualise the run time environment is to see it as a remote display which also act as gateway to send essential information to the cloud browser. 
       </p>
-    </section>
+      <p>
+        The cloud browser lives in an so-called orchestration which is mainly responsible for session management and abstraction. i.e. The cloud browser itself act as any other web browser but is executed on a server. The orchestration is the glue to make this happen. It is also responsible how the stream will send to the runtime environment as this is depending on the underlaying infrastructure. There are two main approaches, single stream and double stream.
+      </p>  
+      <h3>Single Stream<h3>  
+      <p>
+          The maximum number of functionalities that can be shifted into the Cloud environment is referred to as a single stream approach of a Cloud Browser
+      </p>
+      <figure>
+        <!-- TODO need to use the original svg -->
+        <img src="https://www.w3.org/2011/webtv/wiki/images/9/9f/Ss-cp-2.png" alt="">
+        <figcaption>Architecture single stream</figcaption>
+      </figure>
+      <h3>Double Stream<h3>  
+      <p>
+          With regards to the double stream approach of a Cloud Browser, the Cloud Browser renders the UI only, while the media is delivered from another server. Thus, the UI and media streams are delivered separately to the client, which then has to combine both of these streams and present them to the end user in a unified form. This approach therefore enables reuse of the legacy video delivery infrastructures, e.g. multicast networks, cable networks, etc., thereby cutting down the unicast traffic that will be used only in certain cases where the UI stream is delivered.
+      </p>
+      <figure>
+        <!-- TODO need to use the original svg -->
+        <img src="https://www.w3.org/2011/webtv/wiki/images/4/47/Ds-lp-2.png" alt="">
+        <figcaption>Architecture double stream</figcaption>
+      </figure>
+    </section>      
   </body>
 </html>
