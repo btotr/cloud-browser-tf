@@ -65,13 +65,13 @@
       <p>
           In a cloud browser architecture the execution is done on a server and the result is send down to a so-called runtime environment. This runtime environment is only responsible for displaying the stream and provide essential information such-as key presses.The latter is depending on the infrastructure. In the near future there may be a specification how to exchange this information for example with json-dl with a generic communication mechanisms such as websockets or webRTC. The transport and format will be agnostic. i.e. vendor specific but may be standardised outside w3c. Furthermore the runtime environment doesn't have any context. i.e. it will connect to the orchestration and displays the result. This will make sure that all the logic is within the cloud and no necessary updates must be made on the client device. This is also a fundamental different with a <a href="http://www.w3.org/TR/ct-guidelines/#sec-types-of-transformation">transforming proxy</a> where the context still exist on the client device.  An easy way to visualise the run time environment is to see it as a remote display which also act as gateway to send essential information to the cloud browser. 
       </p>
-    <section>  
+    </section>  
     <section>
       <h3>Cloud browser</h3>
       <p>
         The cloud browser it self is a browser instance on the server and will act as any other conventional browser.
       </p>
-    <section>  
+    </section>  
     <section>
       <h3>Orchistration</h3>
       <p>
