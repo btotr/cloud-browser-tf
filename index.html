@@ -53,21 +53,32 @@
       <p>
           The following section provides an overview of the main building blocks of the cloud browser solution. The goal would be to have a consistent architecture between cloud vendors but doesn't limit the inovation of specific implementations. 
       </p>
+    </section>
+    <section>
       <h3>client device</h3>
       <p>
-          A client device is the actual hardware where the User Interface will presented. There are no requirements to the client device other than it should have a runtime environment. a client device could be anything from a set-top-box to a smarttv or even mobile phone. </p>
+          A client device is the actual hardware where the User Interface will presented. There are no requirements to the client device other than it should have a runtime environment. a client device could be anything from a set-top-box to a smarttv or even mobile phone. 
+      </p>
+    </section>
+    <section>
       <h3>Runtime enviroment</h3>
       <p>
           In a cloud browser architecture the execution is done on a server and the result is send down to a so-called runtime environment. This runtime environment is only responsible for displaying the stream and provide essential information such-as key presses.The latter is depending on the infrastructure. In the near future there may be a specification how to exchange this information for example with json-dl with a generic communication mechanisms such as websockets or webRTC. The transport and format will be agnostic. i.e. vendor specific but may be standardised outside w3c. Furthermore the runtime environment doesn't have any context. i.e. it will connect to the orchestration and displays the result. This will make sure that all the logic is within the cloud and no necessary updates must be made on the client device. This is also a fundamental different with a <a href="http://www.w3.org/TR/ct-guidelines/#sec-types-of-transformation">transforming proxy</a> where the context still exist on the client device.  An easy way to visualise the run time environment is to see it as a remote display which also act as gateway to send essential information to the cloud browser. 
       </p>
-      <h3>cloud browser</h3>
+    <section>  
+    <section>
+      <h3>Cloud browser</h3>
       <p>
         The cloud browser it self is a browser instance on the server and will act as any other conventional browser.
       </p>
+    <section>  
+    <section>
       <h3>Orchistration</h3>
       <p>
         The cloud browser lives in an so-called orchestration which is mainly responsible for session management and abstraction. It is also responsible how the stream will send to the runtime environment as this is depending on the underlaying infrastructure. There are two main approaches, <a href="#single-stream>"single stream</a> and <a href="double-stream">double stream</a> which are describe below.
       </p>
+    </section>
+    <section>
       <h4 id="single-stream">Single Stream</h4>  
       <p>
           The maximum number of functionalities that can be shifted into the Cloud environment is referred to as a single stream approach of a Cloud Browser. 
@@ -77,6 +88,8 @@
         <img src="https://www.w3.org/2011/webtv/wiki/images/9/9f/Ss-cp-2.png" alt="">
         <figcaption>Architecture single stream</figcaption>
       </figure>
+    </section>  
+    <section>  
       <h4 id="double-stream">Double Stream</h4>  
       <p>
           With regards to the double stream approach of a Cloud Browser, the Cloud Browser renders the user interface only, while the media is delivered from another server. Thus, the user interface and media streams are delivered separately to the client, which then has to combine both of these streams and present them to the end user in a unified form. This approach therefore enables reuse of the legacy video delivery infrastructures such as multicast networks.
