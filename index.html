@@ -79,29 +79,29 @@
     </section>
 
     <section>
-      <h3>Client device</h3>
+      <h4>Client Device</h4>
       <p>
           A Client Device is the actual hardware where the User Interface is presented. There are no requirements to the Client Device other than that it should have a Cloud Browser Client. A Client Device could be anything from a Set-Top-Box to a SmartTV or even a mobile phon</p>
     </section>
     <section>
-      <h3>Cloud browser client</h3>
+      <h4>Cloud Browser Client</h4>
       <p>
           In a Cloud Browser architecture the execution is done on a server and the result is sent down to a so-called Cloud Browser Client. This Cloud Browser Client is only responsible for displaying the stream and providing essential information such as key strokes. The latter is depending on the infrastructure. In the future there may be a specification how to exchange this information for example with json-dl based on a generic communication mechanisms such as websockets or webRTC. It will be transport and format agnostic. In other words, it will be vendor specific or may be standardised outside W3C. Furthermore, the Cloud Browser Client doesn't have any context. Namely, it will connect to the orchestration and display the result. This will make sure that all the logic is within the cloud and no necessary updates are needed on the client device. This is also a fundamental difference with a Transformation Proxy, where the context still exists on the client device. An easy way to visualise the Cloud Browser Client is to see it as a remote display which also acts as gateway to send essential information to the Cloud Browser.</p>
     </section>  
     <section>
-      <h3>Cloud browser</h3>
+      <h4>Cloud Browser</h4>
       <p>
        The Cloud Browser itself is a user agent terminated in the orchestration and will act as any other conventional browser.
       </p>
     </section>  
     <section>
-      <h3>Orchistration</h3>
+      <h4>Orchistration</h4>
       <p>
         The Cloud Browser lives in a so-called orchestration that is mainly responsible for session management and abstraction. It is also responsible for how the stream will be sent to the Cloud Browser Client as this is depending on the underlaying infrastructure. There are two main approaches, a Single Stream and a Double Stream approach that are described below.
       </p>
     </section>
     <section>
-      <h4 id="single-stream">Single Stream</h4>  
+      <h5 id="single-stream">Single Stream</h5>  
       <p>
           In the Single Stream approach, the orchestration provides both the user interface and the media streams. The Cloud Browser Client does not process any other media data from other media sources. The only data the orchestration receives are triggers such as key strokes originated from the remote control of the Client Device. However, it is important to mention that the triggers are not restricted to input. it could be any data that is sent by any Client Device (e.g. capabilities).
       </p>
@@ -118,7 +118,7 @@
     </section>  
     
     <section>  
-      <h4 id="double-stream">Double Stream</h4>  
+      <h5 id="double-stream">Double Stream</h5>  
       <p>
           With regards to the Double Stream approach of a Cloud Browser, the Cloud Browser renders the User Interface only, while the media is delivered from an Media Server. Thus, the User Interface and media streams are delivered separately to the Client Device, which then has to combine both of these streams and present them to the end-user in a unified form. This approach therefore leverages the video delivery infrastructures such as multicast networks.</p>
       <figure>
