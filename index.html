@@ -81,7 +81,7 @@
     <section>
       <h4>Client Device</h4>
       <p>
-          A Client Device is the actual hardware where the User Interface is presented. There are no requirements to the Client Device other than that it should have a Cloud Browser Client. A Client Device could be anything from a Set-Top-Box to a SmartTV or even a mobile phon</p>
+          A Client Device is the actual hardware where the User Interface is presented. There are no requirements to the Client Device other than that it should have a Cloud Browser Client. A Client Device could be anything from a Set-Top-Box to a SmartTV or even a mobile phone</p>
     </section>
     <section>
       <h4>Cloud Browser Client</h4>
@@ -110,7 +110,7 @@
         <figcaption>Architecture single stream</figcaption>
       </figure>
       <p>
-        The approach executes the Web Application in the Cloud Browser and delivers the user interface to the Cloud Browser Client. A typical use case: The user starts the Client Device which triggers a signal via the Cloud Browser Client which starts a Web Application. The Cloud Browser requests the Web Application. After the resources of the Web Application are downloaded, they are parsed and interpreted by the Cloud Browser. These resources inlude HTML, CSS and JavaScript. The JavaScript is processed and executed by the JavaScript engine of the Cloud Browser. After the layout is done, the painting commands of the User Interface are sent to the Graphics Library. The Graphics Library is part of the Orchestration and resides on the Cloud Browser Server.
+        The approach executes the Web Application in the Cloud Browser and delivers the user interface to the Cloud Browser Client. A typical use case: The user starts the Client Device which triggers a signal via the Cloud Browser Client which starts a Web Application. The Cloud Browser requests the Web Application. After the resources of the Web Application are downloaded, they are parsed and interpreted by the Cloud Browser. These resources include HTML, CSS and JavaScript. The JavaScript is processed and executed by the JavaScript engine of the Cloud Browser. After the layout is done, the painting commands of the User Interface are sent to the Graphics Library. The Graphics Library is part of the Orchestration and resides on the Cloud Browser Server.
       </p>
       <p>        
         In case the Web Application requests a media stream from a Media Server. The Graphics Library will blend the media stream togheter with the User Interface. The output is encoded using the required video codec supported by the Client Device and sent as a single media stream to the Cloud Browser Client via the Orchestration. The Cloud Browser Client receives the media stream. The stream is decoded and presented to the display of the Client Device.
