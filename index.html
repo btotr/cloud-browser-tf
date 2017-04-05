@@ -98,24 +98,25 @@
           The Cloud Browser lives in a so-called orchestration that is mainly responsible for session management and abstraction. It is also responsible for how the stream will be sent to the Cloud Browser Client as this is depending on the underlaying infrastructure. There are two main approaches, a Single Stream and a Double Stream approach that are described below.
         </p>
       </section>
-      <section>
-        <h5 id="single-stream">Single Stream</h5>  
-        <p>
-            In the Single Stream approach, the orchestration provides both the user interface and the media streams. The Cloud Browser Client does not process any other media data from other media sources. The only data the orchestration receives are triggers such as key strokes originated from the remote control of the Client Device. However, it is important to mention that the triggers are not restricted to input. it could be any data that is sent by any Client Device (e.g. capabilities).
-        </p>
-        <figure>
-          <img src="https://www.w3.org/2011/webtv/wiki/images/0/0c/Ss-cp-highlevel.png" alt="">
-          <figcaption>Architecture single stream</figcaption>
-        </figure>
-        <p>
-          The approach executes the Web Application in the Cloud Browser and delivers the user interface to the Cloud Browser Client. A typical use case: The user starts the Client Device which triggers a signal via the Cloud Browser Client which starts a Web Application. The Cloud Browser requests the Web Application. After the resources of the Web Application are downloaded, they are parsed and interpreted by the Cloud Browser. These resources include HTML, CSS and JavaScript. The JavaScript is processed and executed by the JavaScript engine of the Cloud Browser. After the layout is done, the painting commands of the User Interface are sent to the Graphics Library. The Graphics Library is part of the Orchestration and resides on the Cloud Browser Server.
-        </p>
-        <p>        
-          In case the Web Application requests a media stream from a Media Server. The Graphics Library will blend the media stream togheter with the User Interface. The output is encoded using the required video codec supported by the Client Device and sent as a single media stream to the Cloud Browser Client via the Orchestration. The Cloud Browser Client receives the media stream. The stream is decoded and presented to the display of the Client Device.
-        </p>
-      </section>
-    </section>
+    </section>      
     
+    <section>
+      <h5 id="single-stream">Single Stream</h5>  
+      <p>
+          In the Single Stream approach, the orchestration provides both the user interface and the media streams. The Cloud Browser Client does not process any other media data from other media sources. The only data the orchestration receives are triggers such as key strokes originated from the remote control of the Client Device. However, it is important to mention that the triggers are not restricted to input. it could be any data that is sent by any Client Device (e.g. capabilities).
+      </p>
+      <figure>
+        <img src="https://www.w3.org/2011/webtv/wiki/images/0/0c/Ss-cp-highlevel.png" alt="">
+        <figcaption>Architecture single stream</figcaption>
+      </figure>
+      <p>
+        The approach executes the Web Application in the Cloud Browser and delivers the user interface to the Cloud Browser Client. A typical use case: The user starts the Client Device which triggers a signal via the Cloud Browser Client which starts a Web Application. The Cloud Browser requests the Web Application. After the resources of the Web Application are downloaded, they are parsed and interpreted by the Cloud Browser. These resources include HTML, CSS and JavaScript. The JavaScript is processed and executed by the JavaScript engine of the Cloud Browser. After the layout is done, the painting commands of the User Interface are sent to the Graphics Library. The Graphics Library is part of the Orchestration and resides on the Cloud Browser Server.
+      </p>
+      <p>        
+        In case the Web Application requests a media stream from a Media Server. The Graphics Library will blend the media stream togheter with the User Interface. The output is encoded using the required video codec supported by the Client Device and sent as a single media stream to the Cloud Browser Client via the Orchestration. The Cloud Browser Client receives the media stream. The stream is decoded and presented to the display of the Client Device.
+      </p>
+    </section>
+ 
     <section>  
       <h5 id="double-stream">Double Stream</h5>  
       <p>
