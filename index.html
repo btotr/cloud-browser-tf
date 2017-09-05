@@ -54,7 +54,7 @@
       However, the group would like to start to get wider review and comments from the public for the basic architectural mechanism first.
     </section>
     
-    <section class="introductory">
+    <section>
       <h2>Introduction</h2>
       <p>
          The web becomes a feature rich platform. Media capturing, web workers, and many other features ensure an engaging web experience. The increase of features impacts the hardware resources. Provide the same experience to a variety of devices is difficult; therefore, the industry is shifting to another model. Leading content providers will not use a general web browser anymore; instead, a customised web browser is used. Some only use a subset of the web specifications. Some create their own proprietary language. Others will implement a native javascript framework. This assures (near) the same experience on each device and doesn't have to bother with the device varieties. 
@@ -310,7 +310,7 @@
       <p>
         The canPlayType property may be used to detect the supported types. However, on a cloud browser solution, you would also like to know which types are played natively on the client device and which are transcoded. Apart from additional processing cost on the server, it would make more sense to play a media asset natively and leverage the device capabilities when possible.
       </p>
-      <h4>Requirements</h4>
+      <h5>Requirements</h5>
       <p>
         There should be a way to identify virtual and native media capabilities. A solution could be to look at the the "virtually" type with the canPlayType. Here is an example how it will look:
           <code>
