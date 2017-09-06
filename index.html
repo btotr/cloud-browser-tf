@@ -291,21 +291,22 @@
           There should be means to see how the end user perceives the User Interface.
         </p>
       </section>
-      <section>    
-        <h4>Application needs to know when the User Interface is visible</h4>
-        <h3>Description</h3>
-        <p>
-          As an application, I would like to know when the User Interface is perceived by the end-user
-        </p>
-        <ol>
-          <li>The cloud browser renders the User Interface.</li>
-          <li>DOM loaded event is fired.</li>
-          <li>The client receives the User Interface and renders it to the end user.</li>
-        </ol>
-        <h5>Notes</h5>
-        <p>
-          Since the UI is terminated in the cloud, it is hard to tell when the user actually sees it. On a local browser this instantaneously   after a load event. However, on a cloud solution, the UI needs to be sent to the Client Device. Depending on the network   infrastructure (broadband, managed IP) it could take up a significant amount of time. Therefore, you need to use the rendered event   which reflects the time the user perceives the UI.
-        </p>
+    </section>  
+    <section>    
+      <h4>Application needs to know when the User Interface is visible</h4>
+      <h3>Description</h3>
+      <p>
+        As an application, I would like to know when the User Interface is perceived by the end-user
+      </p>
+      <ol>
+        <li>The cloud browser renders the User Interface.</li>
+        <li>DOM loaded event is fired.</li>
+        <li>The client receives the User Interface and renders it to the end user.</li>
+      </ol>
+      <h5>Notes</h5>
+      <p>
+        Since the UI is terminated in the cloud, it is hard to tell when the user actually sees it. On a local browser this instantaneously   after a load event. However, on a cloud solution, the UI needs to be sent to the Client Device. Depending on the network   infrastructure (broadband, managed IP) it could take up a significant amount of time. Therefore, you need to use the rendered event   which reflects the time the user perceives the UI.
+      </p>
       </section>
       <section>  
         <h5>Requirement</h5>
