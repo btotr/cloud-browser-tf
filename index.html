@@ -65,6 +65,7 @@
       <p>
         A great number of users are experiencing the Cloud Browser technology today. The concept of a Cloud Browser is never defined as standardised work; differences with traditional client server model are not explored. This group note is a joined effort from the Cloud Browser Task Force. It provides requirements, use cases and a formalised architecture of a Cloud Browser.
       <p>
+    <section>    
       <h3>Cloud Browser compared to a local browser</h3>
       <p>
         Most people are familiar with local browsers. A content server serves resources such as HTML, Javascript, and media. The local browser requests the resources and makes it perceivable for the end-user. The local browser exists in the operating system. Starting and stopping the browser is the responsibility of the operating system. In addition, it provides hardware functionality such as keyboard inputs. A Cloud Browser differ in varies aspects:
@@ -75,6 +76,8 @@
         <li>The client device isn't constraint by resources such as memory or CPU.</li>
         <li>The Cloud Browser isn't directly connected to the Client Device hardware.</li>
       </ul>
+    </section>
+    <section>    
       <h3>Cloud Browser compared with a split browser</h3>
       <p>
         A split browser, or transformation proxy, transform the content to the most appropriate format for the client device. The Cloud Browser is comparable but different. 
@@ -84,6 +87,8 @@
         <li>The Cloud Browser exists in the cloud. The initiator or client device is only triggering events but is not responsible for the resources nor the representation.</li>
         <li>A Split browser "transforms" the content. The Cloud Browser acts as a local browser; therefore, don't alter the content.</li>
       </ul>
+    </section>
+    <section>    
       <h3>Cloud Browser compared with a thin/fat paradigm</h3>
       <p>
         In a thin/fat paradigm, all processing is done on the server and the user interface is provided to a thin- or zero-client. The Cloud Browser is very comparable but has three key differences: 
@@ -94,7 +99,6 @@
         <li>The Cloud Browser leverage client capabilities where applicable.</li>
       </ul>
     </section>
-    
     <section>
       <h2>Terminology</h2>
       <dt>Cloud Browser Client</dt>
@@ -119,7 +123,7 @@
       <dd>Transformation proxies alter requests sent by user agents to servers and responses returned by servers so that the appearance, structure or control flow of Web applications are modified.</dd>
     </section>
 
-    <section class="informative">
+    <section>
       <h2>Architecture</h2>
       <p>
           The Cloud Browser Architecture is provided in the following section. The goal is to have a consistent architecture between Cloud Browser vendors.
@@ -172,8 +176,7 @@
         In case the Web Application requests a media stream from a Media Server. The Graphic Library will combine the media stream together with the User Interface. The Orchestration sent a single media stream to the Cloud Browser Client; encoded by a Client Device supported codec. The Cloud Browser Client decode and present the stream to the Client Device display.
       </p>
     </section>
- 
-    <section>  
+     <section>  
       <h5 id="double-stream">Double Stream</h5>  
       <p>
           With a Double Stream approach, the Cloud Browser renders the user interface only, while the media is delivered from another source. The User Interface and media streams are delivered separately to the Client Device, which then has to combine both of these streams. The Cloud Browser Client present them to the end-user in a unified form. This approach leverages the video delivery infrastructures. A typical example of a delivery infrastructure is broadcast networks. Here the media is sent to all receivers at ones. Rerouting the traffic is not desired.</p>
@@ -209,6 +212,8 @@
         <li>Cloud Browser Client authenticates itself to the Cloud Orchestration.</li>
         <li>If the authentication is successful, the Orchestration connects the Cloud Browser with the client through the control channel.</li>
       </ol>
+    </section>
+    <section>    
       <h5>Requirements</h5>
       <ul>
         <li>The control channel must be reliable; so, that no state change or instruction gets lost.</li>
@@ -229,6 +234,8 @@
         <li>Client processes the request and sends the result back to the Cloud Browser (if necessary).</li>
         <li>Cloud Browser goes on with the execution of the API call.</li>
       </ol>
+    </section>
+    <section>    
       <h5>Notes</h5>
       <p>
         If the API call is synchronous then the request has to be synchronous too.
@@ -242,6 +249,8 @@
           <li>Control client local tuner.</li>
         </ul>
       </p>
+    </section>
+    <section>    
       <h5>Requirements</h5>
       <ul>
         <li>There must be a control channel.</li>
@@ -266,10 +275,14 @@
       <p>
         Typical example: the user interface is specifically authored for a higher resolution. The screen properties provide the same resolution but the scale is changed.
       </p>
+    </section>
+    <section>    
       <h5>Notes</h5>
       <p>
         A workable solution is to look at the devicePixelRatio on the window object (window.devicePixelRatio). However, this is not how the property is used today. 
       </p>
+    </section>  
+    <section>  
       <h5>Requirements</h5>
       <p>
         There should be means to see how the end user perceives the User Interface.
@@ -290,6 +303,8 @@
       <p>
         Since the UI is terminated in the cloud, it is hard to tell when the user actually sees it. On a local browser this instantaneously after a load event. However, on a cloud solution, the UI needs to be sent to the Client Device. Depending on the network infrastructure (broadband, managed IP) it could take up a significant amount of time. Therefore, you need to use the rendered event which reflects the time the user perceives the UI.
       </p>
+    </section>
+    <section>  
       <h5>Requirement</h5>
       <p>
         There should be means to see when the end user perceives the User Interface. A solution could be to have an additional event to notify when the User Interface is rendered on the screen
@@ -306,10 +321,14 @@
         <li>Cloud Browser provides both virtual as-well as native capabilities.</li>
         <li>As a content provider, you would like to serve the best possible content the users could perceive on their device.</li>
       </ol>
+    </section>
+    <section>    
       <h5>Notes</h5>
       <p>
         The canPlayType property may be used to detect the supported types. However, on a cloud browser solution, you would also like to know which types are played natively on the client device and which are transcoded. Apart from additional processing cost on the server, it would make more sense to play a media asset natively and leverage the device capabilities when possible.
       </p>
+    </section>
+    <section>    
       <h5>Requirements</h5>
       <p>
         There should be a way to identify virtual and native media capabilities. A solution could be to look at the the "virtually" type with the canPlayType. Here is an example how it will look:
@@ -330,10 +349,14 @@
         <li>The Cloud Browser request geolocation.</li>
         <li>Cloud Browser provides location of the orchestration.</li>
       </ol>
+    </section>
+    <section>        
       <h5>Notes</h5>
       <p>
         Sometimes it could be confusing what part is identified. For example, the geolocation API could be used to identify from which location the user is interacting. Based on this information different content could be served. However, it should be clear that the locations are based on the user location and not the cloud browser. This will also provide incorrect inside into analytic services. Usually, the services are using the IP address as the reference which may not work with a Cloud Browser.
       </p>
+    </section>
+    <section>    
       <h5>Requirement</h5>
       <p>
         There should be a convention how to interpreted identification APIs. Where possible a Cloud Browser solution could provide an x-forwarded-for HTTP header. The client type information could be obtained by the user agent string together with the Orchestration information.
@@ -349,10 +372,14 @@
         <li>The client generates a decode error</li>
         <li>Cloud Browser provides error to the application</li>
       </ol>  
+    </section>
+    <section>    
       <h5>Notes</h5>
       <p>
         In a Cloud Browser, you may need additional error reporting. For example when something goes wrong between the Cloud Browser and Client Device you need to have feedback what went wrong.
       </p>
+    </section>
+    <section>    
       <h5>Requirements</h5>
       <p>
         There needs to be a way to provide Cloud Browser specific errors. A proper error message may be reported in the global window object using the error event.
