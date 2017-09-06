@@ -33,24 +33,12 @@
   <body>
     <section id='abstract'>
       <p>
-          A Cloud Browser is a browser running and executing on a server. This document describes the concepts and architecture for the Cloud Browser. The main purpose is to provide the building blocks for a Cloud Browser solution.
+          A Cloud Browser is a browser running and executing on a server. This document describes the concepts and architecture for the Cloud Browser using use cases and requirements.
       </p>
     </section>
     <section id='sotd'>
       <p>
-          This is an Interest Group Note that the Cloud Browser Task Force of the Web and TV Interest Group is discussing and exploring. It has no official standing of any kind and does not represent the support or consensus of any standard organisations or contributors. This is a subset of the W3C Public Web &amp; TV Interest Group - Cloud Browser Task Force. As the Cloud Browser TF progresses its work, this section will be used to identify the architecture that has reached rough consensus within the group.
-      </p>
-      <p>
-          The group have been working on various use cases of the Cloud Browser mechanism, and this "Cloud Browser Architecture Note" was originally a part of that discussion.  Note that the group have been working on the survey of exisiting similar mechanisms, and the group's basic plan is publishing the following three topics as three separate IG Notes first and then merge them into one consolidated Note later:
-      </p>
-      <ol>
-      <li>Basic architecture (this "Cloud Browser Architcture" IG Note)</li>
-      <li><a href="https://www.w3.org/2011/webtv/wiki/Main_Page/Cloud_Browser_TF/cloud_browser_vs_split_browser">Survey of the prior work (similarity/difference)</a></li>
-      <li><a href="https://www.w3.org/2011/webtv/wiki/Main_Page/Cloud_Browser_TF/UseCases">Use cases and requirements</a></li>
-      </ol>
-      <p>
-          It would take some more time to finalize the <a href="https://www.w3.org/2011/webtv/wiki/Main_Page/Cloud_Browser_TF/cloud_browser_vs_split_browser">survey of the prior work</a> and the <a href="https://www.w3.org/2011/webtv/wiki/Main_Page/Cloud_Browser_TF/UseCases">Use cases and requirements</a>.
-      However, the group would like to start to get wider review and comments from the public for the basic architectural mechanism first.
+          This is an Interest Group Note that the Cloud Browser Task Force of the Web and TV Interest Group is discussing and exploring. It has no official standing of any kind and does not represent the support or consensus of any standard organisations or contributor. This is a subset of the Media and Entertainment Interest Group. As the Cloud Browser TF progresses its work, this section will be used to identify the architecture that has reached rough consensus within the group.
       </p>
     </section>
     <section>
@@ -191,6 +179,35 @@
          Cloud Browser Use Cases are split into two categories. Communication and execution.
       </p>
     </section>
+    
+    
+     <!-- template use cases
+      
+      <section>
+        <h4></h4>
+        <p>
+
+        </p>
+        <ol>
+          <li></li>
+        </ol>
+        <section>    
+          <h5>Notes</h5>
+          <p>
+           
+          </p>
+        </section>
+        <section>    
+          <h5>Requirements</h5>
+          <p>
+          
+          </p>
+        </section>
+      </section>
+      
+      -->
+    
+    
     <section>
       <h3>Communication uses cases</h3>
       <p>
@@ -248,6 +265,62 @@
             <li>There must be a control channel.</li>
             <li>All communication must be validated, to make sure that no malicious data has been inserted.</li>
           </ul>
+        </section>
+      </section>
+      <section>
+        <h4>Cloud Browser Client creates a session with the Orchestration</h4>
+        <p>
+          For each session there will be one User Interface and one or more control channels. Also the Orchistration can store resources associated to the session.
+        </p>
+        <ol>
+          <li>The Cloud Browser Client connects to the Orchistration</li>
+          <li>The Cloud Browser Client authenticates</li>
+          <li>After a successful authentication the Orchistration responds with a session id</li>
+        </ol>
+        <section>    
+          <h5>Notes</h5>
+          <p>
+             A possible implementations would be a kind of RPC. A possible representation for session ids would be UUID (http://www.ietf.org/rfc/rfc4122.txt). It is recommended to use a secure communication protocol (HTTPS, TLS).
+          </p>
+        </section>
+        <section>    
+          <h5>Requirements</h5>
+          <p>
+            The session id must be unique.
+          </p>
+        </section>
+      </section>
+      <section>
+        <h4>Cloud Browser Client closes the session</h4>
+        <p>
+          The Cloud Browser Client wants to close the session.
+        </p>
+        <ol>
+          <li>Cloud browser client requests the orchistration to close the session with the specified session id</li>
+        </ol>
+        <section>    
+          <h5>Requirements</h5>
+          <p>
+            There must be a way to close the session. It may be required to close the session from the orchestration. 
+          </p>
+        </section>
+      </section>
+      <section>
+        <h4>Cloud Browser Client starts streaming the User Interface</h4>
+        <p>
+          The Cloud Browser Client begins the streaming of the User Interface associated with a session id.
+        </p>
+        <ol>
+          <li>Cloud Browser client sent a red key</li>
+          <li>Orchistration uses this as trigger to start an Web Application</li>
+          <li>Web application is executed in the Cloud Browser</li>
+          <li>Orchistration sent user interface to the Cloud Browser Client</li>
+        </ol>
+        <section>    
+          <h5>Requirements</h5>
+          <p>
+            The User Interface stream must be as low latency as possible.
+          </p>
         </section>
       </section>
     </section>  
