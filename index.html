@@ -51,6 +51,7 @@
       <p>
           It would take some more time to finalize the <a href="https://www.w3.org/2011/webtv/wiki/Main_Page/Cloud_Browser_TF/cloud_browser_vs_split_browser">survey of the prior work</a> and the <a href="https://www.w3.org/2011/webtv/wiki/Main_Page/Cloud_Browser_TF/UseCases">Use cases and requirements</a>.
       However, the group would like to start to get wider review and comments from the public for the basic architectural mechanism first.
+      </p>
     </section>
     <section>
       <h2>Introduction</h2>
@@ -162,13 +163,13 @@
           In the Single Stream approach, the orchestration provides both, the user interface and the media streams.
       </p>
       <figure>
-        <img src="https://www.w3.org/2011/webtv/wiki/images/0/0c/Ss-cp-highlevel.png" alt="">
+        <img src="https://www.w3.org/2011/webtv/wiki/images/0/0c/Ss-cp-highlevel.png" alt="" />
         <figcaption>Architecture single stream</figcaption>
       </figure>
       <p>
         This approach executes the Web Application in the Cloud Browser and delivers the user interface to the Cloud Browser Client. A typical use case: the user starts the Client Device. The Cloud Browser Client triggers a signal. The signal is received and resolved in the orchestration. It delegates further processing to the Cloud Browser. The Cloud Browser request, download, and parse the resources. These resources include HTML, CSS, and JavaScript. JavaScript is processed and executed. User Interface painting commands are sent to the Graphic Library.
-      <p>
       </p>
+      <p>
         In case the Web Application requests a media stream from a Media Server. The Graphic Library will combine the media stream together with the User Interface. The Orchestration sent a single media stream to the Cloud Browser Client; encoded by a Client Device supported codec. The Cloud Browser Client decode and present the stream to the Client Device display.
       </p>
     </section>
@@ -177,13 +178,12 @@
       <p>
           With a Double Stream approach, the Cloud Browser renders the user interface only, while the media is delivered from another source. The User Interface and media streams are delivered separately to the Client Device, which then has to combine both of these streams. The Cloud Browser Client present them to the end-user in a unified form. This approach leverages the video delivery infrastructures. A typical example of a delivery infrastructure is broadcast networks. Here the media is sent to all receivers at ones. Rerouting the traffic is not desired.</p>
       <figure>
-        <img src="https://www.w3.org/2011/webtv/wiki/images/e/e3/Ds-lp-highlevel.png" alt="">
+        <img src="https://www.w3.org/2011/webtv/wiki/images/e/e3/Ds-lp-highlevel.png" alt="" />
         <figcaption>Architecture Double Stream</figcaption>
       </figure>
-    </section>
-    <section>
       <p>
-        This approach executes the Web Application and delivers the User Interface to the Cloud Browser Client as the single stream approach. A media stream is delivered Out Of Band from another source. Blending is done on the Cloud Browser Client. The user interface is usually provided as a sequence of images which a Client Device could process within its own Graphic Library.</p>
+        This approach executes the Web Application and delivers the User Interface to the Cloud Browser Client as the single stream approach. A media stream is delivered Out Of Band from another source. Blending is done on the Cloud Browser Client. The user interface is usually provided as a sequence of images which a Client Device could process within its own Graphic Library.
+      </p>
     </section>
     <section>
       <h2>Use Cases</h2>
