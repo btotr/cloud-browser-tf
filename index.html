@@ -336,11 +336,11 @@
         <h5>Requirements</h5>
         <p>
           There should be a way to identify virtual and native media capabilities. A solution could be to look at the the "virtually" type with   the canPlayType. Here is an example how it will look:
-            <code>
+            <pre><code>
               var support = videoElement.canPlayType('type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\); 
               if (support == "probably") console.log("natively supported") 
               else if (support == "virtually") console.log("supported by transcoding")
-            </code>
+            </code></pre>
         </p>
       </section>
     </section>  
