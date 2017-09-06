@@ -196,185 +196,185 @@
       <p>
         Enabling a Cloud Browser solution will need communication between a Cloud Browser Client and the Orchestration. Outcomes from these use cases will lead to new standards.
       </p>
-    </section>
-    <section>
-      <h4>Cloud Browser Client establishes a control channel with the Cloud Browser</h4>
-      <p>
-        The control channel is used to communicate the state of the Cloud Browser Client to the Cloud Browser, receive requests from the Cloud Browser.
-      </p>
-      <ol>
-        <li>Cloud Browser Client connects to the Orchestration.</li>
-        <li>Cloud Browser Client authenticates itself to the Cloud Orchestration.</li>
-        <li>If the authentication is successful, the Orchestration connects the Cloud Browser with the client through the control channel.</li>
-      </ol>
-      <section>    
-        <h5>Requirements</h5>
-        <ul>
-          <li>The control channel must be reliable; so, that no state change or instruction gets lost.</li>
-          <li>Both the Cloud Browser and the Cloud Browser Client communicate through this channel.</li>
-          <li>Cloud environment needs a way to authenticate the client.</li>
-        </ul>
+      <section>
+        <h4>Cloud Browser Client establishes a control channel with the Cloud Browser</h4>
+        <p>
+          The control channel is used to communicate the state of the Cloud Browser Client to the Cloud Browser, receive requests from the Cloud   Browser.
+        </p>
+        <ol>
+          <li>Cloud Browser Client connects to the Orchestration.</li>
+          <li>Cloud Browser Client authenticates itself to the Cloud Orchestration.</li>
+          <li>If the authentication is successful, the Orchestration connects the Cloud Browser with the client through the control channel.</li  >
+        </ol>
+        <section>    
+          <h5>Requirements</h5>
+          <ul>
+            <li>The control channel must be reliable; so, that no state change or instruction gets lost.</li>
+            <li>Both the Cloud Browser and the Cloud Browser Client communicate through this channel.</li>
+            <li>Cloud environment needs a way to authenticate the client.</li>
+          </ul>
+        </section>
+      </section>  
+      <section>
+        <h4>Cloud Browser sends request through control channel to the Cloud Browser Client</h4>
+        <p>
+          The application running within the Cloud Browser issues an API call, this API call depends upon the partial or whole execution in the   Cloud Browser Client.
+        </p>
+        <ol>
+          <li>Application issues API call.</li>
+          <li>Cloud Browser begins executing the API call.</li>
+          <li>If a part or the whole call depends on the client side execution, then send a request to the device client.</li>
+          <li>Client processes the request and sends the result back to the Cloud Browser (if necessary).</li>
+          <li>Cloud Browser goes on with the execution of the API call.</li>
+        </ol>
+        <section>    
+          <h5>Notes</h5>
+          <p>
+            If the API call is synchronous then the request has to be synchronous too.
+          </p>
+          <p>
+            List of possible requests:        
+            <ul>
+              <li>Set the volume.</li>
+              <li>Load an URL for playback (for Double Stream Approach with a local player).</li>
+              <li>Play, pause, stop, seek current playing media.</li>
+              <li>Control client local tuner.</li>
+            </ul>
+          </p>
+        </section>
+        <section>    
+          <h5>Requirements</h5>
+          <ul>
+            <li>There must be a control channel.</li>
+            <li>All communication must be validated, to make sure that no malicious data has been inserted.</li>
+          </ul>
+        </section>
       </section>
     </section>  
-    <section>
-      <h4>Cloud Browser sends request through control channel to the Cloud Browser Client</h4>
-      <p>
-        The application running within the Cloud Browser issues an API call, this API call depends upon the partial or whole execution in the Cloud Browser Client.
-      </p>
-      <ol>
-        <li>Application issues API call.</li>
-        <li>Cloud Browser begins executing the API call.</li>
-        <li>If a part or the whole call depends on the client side execution, then send a request to the device client.</li>
-        <li>Client processes the request and sends the result back to the Cloud Browser (if necessary).</li>
-        <li>Cloud Browser goes on with the execution of the API call.</li>
-      </ol>
-      <section>    
-        <h5>Notes</h5>
-        <p>
-          If the API call is synchronous then the request has to be synchronous too.
-        </p>
-        <p>
-          List of possible requests:        
-          <ul>
-            <li>Set the volume.</li>
-            <li>Load an URL for playback (for Double Stream Approach with a local player).</li>
-            <li>Play, pause, stop, seek current playing media.</li>
-            <li>Control client local tuner.</li>
-          </ul>
-        </p>
-      </section>
-      <section>    
-        <h5>Requirements</h5>
-        <ul>
-          <li>There must be a control channel.</li>
-          <li>All communication must be validated, to make sure that no malicious data has been inserted.</li>
-        </ul>
-      </section>
-    </section>
     <section>
       <h3>Execution Use Cases</h3>
       <p>
         Execution Use Cases describe the challenges that the Cloud Browser encounter. Some use cases will work on a local browser but are problematic on a Cloud Browser. These use cases will be used to extend or modify existing standards.
       </p>
-    </section>
-    <section>
-      <h4>User interface is downscaled on the client device.</h4>
-      <p>As a Web Application, I would like to know how the User Interface is perceived by the end-user.</p>
-      <ol>
-        <li>The cloud browser renders the User Interface on 1920x1080 resolution.</li>
-        <li>The client is only capable of displaying 1280x720.</li>
-        <li>Cloud Browser downscale the User Interface to 1280x720.
-      </ol>
-      <p>
-        Typical example: the user interface is specifically authored for a higher resolution. The screen properties provide the same resolution but the scale is changed.
-      </p>
-      <section>    
-        <h5>Notes</h5>
+      <section>
+        <h4>User interface is downscaled on the client device.</h4>
+        <p>As a Web Application, I would like to know how the User Interface is perceived by the end-user.</p>
+        <ol>
+          <li>The cloud browser renders the User Interface on 1920x1080 resolution.</li>
+          <li>The client is only capable of displaying 1280x720.</li>
+          <li>Cloud Browser downscale the User Interface to 1280x720.
+        </ol>
         <p>
-          A workable solution is to look at the devicePixelRatio on the window object (window.devicePixelRatio). However, this is not how the   property is used today. 
+          Typical example: the user interface is specifically authored for a higher resolution. The screen properties provide the same   resolution but the scale is changed.
         </p>
+        <section>    
+          <h5>Notes</h5>
+          <p>
+            A workable solution is to look at the devicePixelRatio on the window object (window.devicePixelRatio). However, this is not how the     property is used today. 
+          </p>
+        </section>  
+        <section>  
+          <h5>Requirements</h5>
+          <p>
+            There should be means to see how the end user perceives the User Interface.
+          </p>
+        </section>
+      </section>  
+      <section>    
+        <h4>Application needs to know when the User Interface is visible</h4>
+        <h3>Description</h3>
+        <p>
+          As an application, I would like to know when the User Interface is perceived by the end-user
+        </p>
+        <ol>
+          <li>The cloud browser renders the User Interface.</li>
+          <li>DOM loaded event is fired.</li>
+          <li>The client receives the User Interface and renders it to the end user.</li>
+        </ol>
+        <section>
+          <h5>Notes</h5>
+          <p>
+            Since the UI is terminated in the cloud, it is hard to tell when the user actually sees it. On a local browser this instantaneously     after a load event. However, on a cloud solution, the UI needs to be sent to the Client Device. Depending on the network     infrastructure (broadband, managed IP) it could take up a significant amount of time. Therefore, you need to use the rendered   event   which reflects the time the user perceives the UI.
+          </p>
+        </section>
+        <section>  
+          <h5>Requirement</h5>
+          <p>
+            There should be means to see when the end user perceives the User Interface. A solution could be to have an additional event to   notify   when the User Interface is rendered on the screen
+          </p>
+        </section>
+      </section>  
+      <section>    
+        <h4>Application needs to virtual media capabilities</h4>
+        <p>
+          As a Web Application, I would like to know which media capabilities are virtual and which are native
+        </p>
+        <ol>
+          <li>The cloud browser request media capabilities.</li>
+          <li>Cloud Browser provides both virtual as-well as native capabilities.</li>
+          <li>As a content provider, you would like to serve the best possible content the users could perceive on their device.</li>
+        </ol>
+        <section>    
+          <h5>Notes</h5>
+          <p>
+            The canPlayType property may be used to detect the supported types. However, on a cloud browser solution, you would also like to   know which types are played natively on the client device and which are transcoded. Apart from additional processing cost on the   server, it would make more sense to play a media asset natively and leverage the device capabilities when possible.
+          </p>
+        </section>
+        <section>    
+          <h5>Requirements</h5>
+          <p>
+            There should be a way to identify virtual and native media capabilities. A solution could be to look at the the "virtually" type   with   the canPlayType. Here is an example how it will look:
+              <pre><code>
+                var support = videoElement.canPlayType('type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\); 
+                if (support == "probably") console.log("natively supported") 
+                else if (support == "virtually") console.log("supported by transcoding")
+              </code></pre>
+          </p>
+        </section>
+      </section>  
+      <section>
+        <h4>Application needs to know how to identify</h4>
+        <p>
+          As a Web Application, I would like to know how to interpreted identification      
+        </p>
+        <ol>
+          <li>The Cloud Browser request geolocation.</li>
+          <li>Cloud Browser provides location of the orchestration.</li>
+        </ol>
+        <section>        
+          <h5>Notes</h5>
+          <p>
+            Sometimes it could be confusing what part is identified. For example, the geolocation API could be used to identify from which     location the user is interacting. Based on this information different content could be served. However, it should be clear that   the   locations are based on the user location and not the cloud browser. This will also provide incorrect inside into analytic   services.   Usually, the services are using the IP address as the reference which may not work with a Cloud Browser.
+          </p>
+        </section>
+        <section>    
+          <h5>Requirement</h5>
+          <p>
+            There should be a convention how to interpreted identification APIs. Where possible a Cloud Browser solution could provide an x    -forwarded-for HTTP header. The client type information could be obtained by the user agent string together with the Orchestration     information.
+          </p>
+        </section>
       </section>  
       <section>  
-        <h5>Requirements</h5>
+        <h4>Application needs to have additional error handling</h4>
         <p>
-          There should be means to see how the end user perceives the User Interface.
+          As a Web Application, I would like to know how to provide Cloud Browser specific errors
         </p>
-      </section>
-    </section>  
-    <section>    
-      <h4>Application needs to know when the User Interface is visible</h4>
-      <h3>Description</h3>
-      <p>
-        As an application, I would like to know when the User Interface is perceived by the end-user
-      </p>
-      <ol>
-        <li>The cloud browser renders the User Interface.</li>
-        <li>DOM loaded event is fired.</li>
-        <li>The client receives the User Interface and renders it to the end user.</li>
-      </ol>
-      <section>
-        <h5>Notes</h5>
-        <p>
-          Since the UI is terminated in the cloud, it is hard to tell when the user actually sees it. On a local browser this instantaneously   after a load event. However, on a cloud solution, the UI needs to be sent to the Client Device. Depending on the network   infrastructure (broadband, managed IP) it could take up a significant amount of time. Therefore, you need to use the rendered event   which reflects the time the user perceives the UI.
-        </p>
-      </section>
-      <section>  
-        <h5>Requirement</h5>
-        <p>
-          There should be means to see when the end user perceives the User Interface. A solution could be to have an additional event to notify   when the User Interface is rendered on the screen
-        </p>
-      </section>
-    </section>  
-    <section>    
-      <h4>Application needs to virtual media capabilities</h4>
-      <p>
-        As a Web Application, I would like to know which media capabilities are virtual and which are native
-      </p>
-      <ol>
-        <li>The cloud browser request media capabilities.</li>
-        <li>Cloud Browser provides both virtual as-well as native capabilities.</li>
-        <li>As a content provider, you would like to serve the best possible content the users could perceive on their device.</li>
-      </ol>
-      <section>    
-        <h5>Notes</h5>
-        <p>
-          The canPlayType property may be used to detect the supported types. However, on a cloud browser solution, you would also like to know which types are played natively on the client device and which are transcoded. Apart from additional processing cost on the server, it would make more sense to play a media asset natively and leverage the device capabilities when possible.
-        </p>
-      </section>
-      <section>    
-        <h5>Requirements</h5>
-        <p>
-          There should be a way to identify virtual and native media capabilities. A solution could be to look at the the "virtually" type with   the canPlayType. Here is an example how it will look:
-            <pre><code>
-              var support = videoElement.canPlayType('type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\); 
-              if (support == "probably") console.log("natively supported") 
-              else if (support == "virtually") console.log("supported by transcoding")
-            </code></pre>
-        </p>
-      </section>
-    </section>  
-    <section>
-      <h4>Application needs to know how to identify</h4>
-      <p>
-        As a Web Application, I would like to know how to interpreted identification      
-      </p>
-      <ol>
-        <li>The Cloud Browser request geolocation.</li>
-        <li>Cloud Browser provides location of the orchestration.</li>
-      </ol>
-      <section>        
-        <h5>Notes</h5>
-        <p>
-          Sometimes it could be confusing what part is identified. For example, the geolocation API could be used to identify from which   location the user is interacting. Based on this information different content could be served. However, it should be clear that the   locations are based on the user location and not the cloud browser. This will also provide incorrect inside into analytic services.   Usually, the services are using the IP address as the reference which may not work with a Cloud Browser.
-        </p>
-      </section>
-      <section>    
-        <h5>Requirement</h5>
-        <p>
-          There should be a convention how to interpreted identification APIs. Where possible a Cloud Browser solution could provide an x  -forwarded-for HTTP header. The client type information could be obtained by the user agent string together with the Orchestration   information.
-        </p>
-      </section>
-    </section>  
-    <section>  
-      <h4>Application needs to have additional error handling</h4>
-      <p>
-        As a Web Application, I would like to know how to provide Cloud Browser specific errors
-      </p>
-      <ol>
-        <li>The client generates a decode error</li>
-        <li>Cloud Browser provides error to the application</li>
-      </ol>  
-      <section>    
-        <h5>Notes</h5>
-        <p>
-          In a Cloud Browser, you may need additional error reporting. For example when something goes wrong between the Cloud Browser and   Client Device you need to have feedback what went wrong.
-        </p>
-      </section>
-      <section>    
-        <h5>Requirements</h5>
-        <p>
-          There needs to be a way to provide Cloud Browser specific errors. A proper error message may be reported in the global window object   using the error event.
-        </p>  
+        <ol>
+          <li>The client generates a decode error</li>
+          <li>Cloud Browser provides error to the application</li>
+        </ol>  
+        <section>    
+          <h5>Notes</h5>
+          <p>
+            In a Cloud Browser, you may need additional error reporting. For example when something goes wrong between the Cloud Browser and     Client Device you need to have feedback what went wrong.
+          </p>
+        </section>
+        <section>    
+          <h5>Requirements</h5>
+          <p>
+            There needs to be a way to provide Cloud Browser specific errors. A proper error message may be reported in the global window object     using the error event.
+          </p>  
+        </section>
       </section>
     </section>  
     <section>
