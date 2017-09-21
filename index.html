@@ -47,7 +47,7 @@
          The web becomes a feature rich platform. Media capturing, web workers, and many other features ensure an engaging web experience. The increase of features impacts the hardware resources. Provide the same experience to a variety of devices is difficult; therefore, the industry is shifting to another model. Leading content providers will not use a general web browser anymore; instead, a customised web browser is used. Some only use a subset of the web specifications. Some create their own proprietary language. Others will implement a native javascript framework. This assures (near) the same experience on each device and doesn't have to bother with the device varieties. 
       </p>
       <p>
-        Several web browsers, on a single device, is not desirable. It causes fragmentation and uses client device resources; not a durable solution. The Cloud Browser addresses these issues by putting the browser into a powerful server, or cloud. The execution is shifted to the cloud, where the user interface is rendered and send to the Client Device. The main purpose of the client device is presenting the user interface to the end user. This solution makes it possible to provide a uniform experience for a large range of devices. Furthermore, it reduces the need for processing on the client device and helps to deploy new browser technologies faster.
+        Several web browsers, on a single device, is not desirable. It causes fragmentation and uses client device resources—not a durable solution. The Cloud Browser addresses these issues by putting the browser into a powerful server, or cloud. The execution is shifted to the cloud, where the user interface is rendered and send to the Client Device. The main purpose of the client device is presenting the user interface to the end user. This solution makes it possible to provide a uniform experience for a large range of devices. Furthermore, it reduces the need for processing on the client device and helps to deploy new browser technologies faster.
       </p>
       <p>
         A great number of users are experiencing the Cloud Browser technology today. The concept of a Cloud Browser is never defined as standardised work; differences with traditional client server model are not explored. This group note is a joined effort from the Cloud Browser Task Force. It provides requirements, use cases and a formalised architecture of a Cloud Browser.
@@ -70,9 +70,9 @@
         A split browser, or transformation proxy, transform the content to the most appropriate format for the client device. The Cloud Browser is comparable but different. 
       </p>
       <ul>
-        <li>Split browsers provide the best possible representation but are limited by the client capabilities. The split browser could optimise the content but the client needs to process the content. A Cloud Browser terminates everything on the server; therefore, circumvent this problem.</li>
-        <li>The Cloud Browser exists in the cloud. The initiator or client device is only triggering events but is not responsible for the resources nor the representation.</li>
-        <li>A Split browser "transforms" the content. The Cloud Browser acts as a local browser; therefore, don't alter the content.</li>
+        <li>Split browsers provide the best possible representation but are limited by the client capabilities. The split browser could optimise the content but the client needs to process the content. A Cloud Browser terminates everything on the server. Therefore, circumvent the problem of client capability constaints.</li>
+        <li>The Cloud Browser exists in the cloud. The initiator or client device is triggering events but is not responsible for the resources nor the representation.</li>
+        <li>A Split browser <em>"transforms"</em> the content. The Cloud Browser acts as a local browser; therefore, don't alter the content.</li>
       </ul>
     </section>
     <section>    
@@ -123,25 +123,25 @@
       <section>
         <h4>Cloud Browser Client</h4>
         <p>
-            In a Cloud Browser solution, the execution is done in the cloud; the result is sent to the Cloud Browser Client. This Cloud Browser Client is only responsible for showing the user interface and providing essential information such as key strokes. The latter is depending on the infrastructure. It will be transport and format agnostic. In other words, it will be vendor specific or may be standardised in the future. The Cloud Browser Client doesn't have any context. It connects to the orchestration and shows the user interface. This will make sure that all the logic is in the cloud, and avoid, otherwise required updates, on the Client Device. A way to visualise the Cloud Browser Client is a remote display which sends essential information to the Cloud Browser Orchestration.
+            In a Cloud Browser solution, the execution is done in the cloud; the result is sent to the Cloud Browser Client. This Cloud Browser Client is only responsible for showing the user interface and providing essential information such as key strokes. The latter is depending on the infrastructure. It will be transport and format agnostic. In other words, it will be vendor specific or may be standardised in the future. The Cloud Browser Client doesn't have any context. It connects to the Orchestration and shows the user interface. This will make sure that all the logic is in the cloud, and avoid, otherwise required updates, on the Client Device. A way to visualise the Cloud Browser Client is a remote display which sends essential information to the Cloud Browser Orchestration.
         </p>
       </section>  
       <section>
         <h4>Cloud Browser</h4>
         <p>
-         The Cloud Browser denoted in the architecture is a web browser instance, terminated in the orchestration. It acts as a local web browser. Consequently, existing Web Application doesn't have to be authored for a Cloud Browser Solution.
+         The Cloud Browser denoted in the architecture is a web browser instance, terminated in the Orchestration. It acts as a local web browser. Consequently, existing Web Application doesn't have to be authored for a Cloud Browser Solution.
         </p>
       </section>  
       <section>
         <h4>Orchestration</h4>
         <p>
-          The Cloud Browser exists in an orchestration that is responsible for session management and abstraction. Multiple Cloud Browsers Clients could connect to the orchestration. The orchestration makes sure a client connects to the right Cloud Browser instance. Furthermore, any difference with a local browser is abstracted. For example, a Client Device may have constraints on codec capabilities. By abstracting those constraints the orchestration could either provide this to a W3C standardized API or virtually enhance this constraint by transcoding to a supported codec. Either way, the Cloud Browser is unaware of the decisions. This typical example ensures that the Client Device could run any Web Application, regardless of the codec it mandates. In which manner the orchestration is abstracted is out of scope for this document, and up to the implementor.
+          The Cloud Browser exists in an orchestration that is responsible for session management and abstraction. Multiple Cloud Browsers Clients could connect to the Orchestration. The Orchestration makes sure a client connects to the right Cloud Browser instance. Furthermore, any difference with a local browser is abstracted. For example, a Client Device may have constraints on codec capabilities. By abstracting those constraints the Orchestration could either provide this to a W3C standardized API or virtually enhance this constraint by transcoding to a supported codec. Either way, the Cloud Browser is unaware of the decisions. This typical example ensures that the Client Device could run any Web Application, regardless of the codec it mandates. In which manner the Orchestration is abstracted is out of scope for this document, and up to the implementor.
         </p>
         <p>
-          The orchestration receives triggers from the Cloud Browser Client such as key strokes originated from the remote control. Triggers are not restricted to input. It could be any information from the Client Device. The orchestration interpreted the triggers and may decide to delegate it to the Cloud Browser. Depending on the context a red button could be process as a regular key press by the Cloud browser or opens a new Web Application on a certain URL. 
+          The orchestration receives triggers from the Cloud Browser Client such as key strokes originated from the remote control. Triggers are not restricted to input. It could be any information from the Client Device. The Orchestration interpreted the triggers and may decide to delegate it to the Cloud Browser. Depending on the context a red button could be process as a regular key press by the Cloud Browser or opens a new Web Application on a certain URL. 
         </p>
         <p>
-          The orchestration decides how the user interface is sent to the Cloud Browser Client. There are two main approaches, a Single Stream and a Double Stream approach. The stream format is agnostic to the architecture because this encourages innovation.
+          The Orchestration decides how the user interface is sent to the Cloud Browser Client. There are two main approaches, a Single Stream and a Double Stream approach. The stream format is agnostic to the architecture—this encourages innovation.
         </p>
       </section>
     </section>      
