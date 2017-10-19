@@ -120,13 +120,19 @@
         <section>
           <h4>Client Device</h4>
           <p>
-              A Client Device is an apparatus which presenting—or delegating—the User Interface. To be operable it should be connected to a network. A Client Device could be A Set-Top-Box. A Client Device could be a mobile phone. A Client Device could even be a smart watch. Provided, a Cloud Browser Client is available.
+              A Client Device is an apparatus which presenting—or delegating—the User Interface. To be operable a connected to a network is required. A Client Device can be A Set-Top-Box. A Client Device can be a mobile phone. A Client Device can even be a smart watch. Provided, a Cloud Browser Client is available.
           </p>
         </section>
         <section>
           <h4>Cloud Browser Client</h4>
           <p>
-              In a Cloud Browser solution, the execution is done in the cloud; the result is sent to the Cloud Browser Client. This Cloud Browser Client is only responsible for showing the user interface and providing essential information such as key strokes. The latter is depending on the infrastructure. It will be transport and format agnostic. In other words, it will be vendor specific or may be standardised in the future. The Cloud Browser Client doesn't have any context. It connects to the Orchestration and shows the user interface. This will make sure that all the logic is in the cloud, and avoid, otherwise required updates, on the Client Device. A way to visualise the Cloud Browser Client is a remote display which sends essential information to the Cloud Browser Orchestration.
+              In a Cloud Browser solution, the execution is done in the cloud; the result is sent to the Cloud Browser Client. This Cloud Browser Client is only responsible for showing the user interface and providing essential information such as keystrokes. The latter is depending on the infrastructure. 
+          </p>
+          <p>
+            The Cloud Browser Client does not have any context. It connects to the Orchestration and shows the user interface. This will make sure that all the logic is in the cloud. This avoids otherwise required updates on the Client Device. A way to visualise the Cloud Browser Client is a remote display which sends essential information to the Cloud Browser Orchestration.
+          </p>
+          <p>
+            The transport and format between the Cloud Browser Client and Orchestration is agnostic— vendor specific.
           </p>
         </section>  
         <section>
@@ -138,7 +144,7 @@
         <section>
           <h4>Orchestration</h4>
           <p>
-            The Cloud Browser exists in an orchestration that is responsible for session management and abstraction. Multiple Cloud Browsers Clients could connect to the Orchestration. The Orchestration makes sure a client connects to the right Cloud Browser instance. Furthermore, any difference with a local browser is abstracted. For example, a Client Device may have constraints on codec capabilities. By abstracting those constraints the Orchestration could either provide this to a W3C standardized API or virtually enhance this constraint by transcoding to a supported codec. Either way, the Cloud Browser is unaware of the decisions. This typical example ensures that the Client Device could run any Web Application, regardless of the codec it mandates. In which manner the Orchestration is abstracted is out of scope for this document, and up to the implementor.
+            The Cloud Browser exists in an orchestration.  It is responsible for session management and abstraction. Multiple Cloud Browsers Clients could connect to the orchestration. The orchestration makes sure a client connects to the right Cloud Browser instance. Furthermore, it abstracts differences with a local browser. For example, a Client Device may have constraints on codec capabilities. Then the orchestration could either, provide this to a W3C standardized API, or virtually enhance this constraint by transcoding to a supported codec. Either way, the Cloud Browser is unaware of the decisions. This typical example ensures that the Client Device could run any Web Application, regardless of the codec it mandates. Details on abstraction are out of scope for this document and up to the implementor.
           </p>
           <p>
             The orchestration receives triggers from the Cloud Browser Client such as key strokes originated from the remote control. Triggers are not restricted to input. It could be any information from the Client Device. The Orchestration interpreted the triggers and may decide to delegate it to the Cloud Browser. Depending on the context a red button could be process as a regular key press by the Cloud Browser or opens a new Web Application on a certain URL. 
